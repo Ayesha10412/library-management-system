@@ -9,6 +9,10 @@ import {
   TableRow,
 } from "../ui/table";
 import type { IBook } from "@/types/book";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+import { FiArrowRightCircle } from "react-icons/fi";
+import { Link } from "react-router";
 
 export default function AllBooks() {
   const {
@@ -21,8 +25,7 @@ export default function AllBooks() {
     refetchOnMountOrArgChange: true,
     refetchOnReconnect: true,
   });
-  //   const books = response?.data ?? [];
-  //   console.log(books);
+  console.log(response);
   if (isLoading) {
     return <p>Loading......</p>;
   }
@@ -56,8 +59,21 @@ export default function AllBooks() {
                 <TableCell>{book.genre}</TableCell>
                 <TableCell>{book.isbn}</TableCell>
                 <TableCell>{book.copies}</TableCell>
-                <TableCell>{book.available}</TableCell>
-                <TableCell className="text-right"></TableCell>
+                <TableCell>{book.available ? "true" : "false"}</TableCell>
+                <TableCell className="text-right flex flex-row gap-0.5 text-xl">
+                  <Link to="/editBook">
+                    {" "}
+                    <FaEdit className="text-green-500" />
+                  </Link>
+                  <Link to="/deleteBook">
+                    {" "}
+                    <MdDelete className="text-red-500" />
+                  </Link>
+                  <Link to="/borrowBook">
+                    {" "}
+                    <FiArrowRightCircle className="text-blue-600" />
+                  </Link>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
