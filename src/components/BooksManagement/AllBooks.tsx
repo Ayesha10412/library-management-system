@@ -59,9 +59,9 @@ export default function AllBooks() {
                 <TableCell>{book.genre}</TableCell>
                 <TableCell>{book.isbn}</TableCell>
                 <TableCell>{book.copies}</TableCell>
-                <TableCell>{book.available ? "true" : "false"}</TableCell>
+                <TableCell>{book.available ? "true" : "Unavailable"}</TableCell>
                 <TableCell className="text-right flex flex-row gap-0.5 text-xl">
-                  <Link to="/editBook">
+                  <Link to={`/editBook/${book._id}`}>
                     {" "}
                     <FaEdit className="text-green-500" />
                   </Link>
