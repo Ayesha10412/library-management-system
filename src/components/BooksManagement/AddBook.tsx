@@ -22,23 +22,31 @@ import { Textarea } from "../ui/textarea";
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 export default function AddBook() {
   const form = useForm();
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  const [createBook, { data, isLoading, isError }] = useCreateBookMutation();
+  const [createBook, { data, isLoading }] = useCreateBookMutation();
   console.log({ data });
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    const bookData = {
-      ...data,
-      isCompleted: false,
-    };
-    const result = await createBook(bookData).unwrap();
-    setOpen(false);
-    form.reset();
-    toast.success("Book added successfully!");
-    console.log("inside data:", result);
-    console.log(isError);
+    try {
+      const bookData = {
+        ...data,
+        isCompleted: false,
+      };
+      const result = await createBook(bookData).unwrap();
+      setOpen(false);
+      form.reset();
+      navigate("/allBooks");
+      toast.success("Book added successfully!");
+      console.log("inside data:", result);
+    } catch (error: any) {
+      const errorMessage =
+        error?.data?.message || error?.message || "Failed to add the book!";
+      toast.error(errorMessage);
+    }
   };
   return (
     <div className="flex justify-center items-center mt-8">
