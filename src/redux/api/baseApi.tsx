@@ -26,10 +26,19 @@ export const baseApi = createApi({
       }),
       invalidatesTags: ["books"],
     }),
+    createBook: builder.mutation({
+      query: (book) => ({
+        url: "/books",
+        method: "POST",
+        body: book,
+      }),
+      invalidatesTags: ["books"],
+    }),
   }),
 });
 export const {
   useGetBooksQuery,
   useUpdateBookMutation,
   useDeleteBookMutation,
+  useCreateBookMutation,
 } = baseApi;

@@ -28,7 +28,7 @@ export function Navbar() {
         <a href="/allBooks" className="hover:text-blue-600">
           All Books
         </a>
-        <a href="/addBooks" className="hover:text-blue-600">
+        <a href="/addBook" className="hover:text-blue-600">
           Add Books
         </a>
         <a href="/borrowSummary" className="hover:text-blue-600">
