@@ -72,7 +72,7 @@ export default function AddBook() {
                 name="title"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="mb-0.5">Title</FormLabel>
+                    <FormLabel className="mb-0.5 ">Title</FormLabel>
                     <FormLabel />
                     <FormControl>
                       <Input {...field} />
@@ -85,7 +85,7 @@ export default function AddBook() {
                 name="author"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="mt-1">Author</FormLabel>
+                    <FormLabel className="mt-2 ">Author</FormLabel>
                     <FormLabel />
                     <FormControl>
                       <Input {...field} />
@@ -98,7 +98,7 @@ export default function AddBook() {
                 name="genre"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Genre</FormLabel>
+                    <FormLabel className="mt-2 ">Genre</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
@@ -125,7 +125,7 @@ export default function AddBook() {
                 name="isbn"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="mt-1">ISBN</FormLabel>
+                    <FormLabel className="mt-2 ">ISBN</FormLabel>
                     <FormLabel />
                     <FormControl>
                       <Input {...field} />
@@ -138,7 +138,7 @@ export default function AddBook() {
                 name="description"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="mt-1">Description</FormLabel>
+                    <FormLabel className="mt-2 ">Description</FormLabel>
                     <FormLabel />
                     <FormControl>
                       <Textarea {...field} />
@@ -151,7 +151,7 @@ export default function AddBook() {
                 name="copies"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="mt-1">Copies</FormLabel>
+                    <FormLabel className="mt-2 ">Copies</FormLabel>
                     <FormLabel />
                     <FormControl>
                       <Input type="number" {...field} min={1} />
@@ -164,7 +164,7 @@ export default function AddBook() {
                 name="available"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="mt-1">Available</FormLabel>
+                    <FormLabel className="mt-2 ">Available</FormLabel>
                     <FormLabel />
                     <FormControl>
                       <Select

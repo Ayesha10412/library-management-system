@@ -11,17 +11,21 @@ import { Toggle } from "../ui/toggle";
 
 export function Navbar() {
   return (
-    <nav className="flex items-center justify-between p-4 border-b bg-white">
+    <nav className="flex items-center justify-between bg-[#1e3b8a91] p-4 border-b ">
       <div>
-        <img src={logo} alt="" className="w-15 " />
+        <img
+          src={logo}
+          alt=""
+          className="w-15 text-[#ffffffe0] border-2 rounded-full"
+        />
       </div>
-      <div className="text-2xl font-bold text-center ">
+      <div className="text-2xl font-bold text-[#ffffffe0] text-center ">
         Library Management System
       </div>
 
       {/* Desktop Links */}
 
-      <div className="hidden md:flex gap-6 text-sm font-medium">
+      <div className="hidden md:flex gap-6 text-sm font-medium text-[#ffffffe0]">
         <a href="" className="hover:text-blue-600">
           <Toggle></Toggle>
         </a>
@@ -31,7 +35,7 @@ export function Navbar() {
         <a href="/addBook" className="hover:text-blue-600">
           Add Books
         </a>
-        <a href="/borrowSummary" className="hover:text-blue-600">
+        <a href="/borrow-summary" className="hover:text-blue-600">
           Borrow Summary
         </a>
       </div>
@@ -56,7 +60,7 @@ export function Navbar() {
               <a href="/addBooks">Add Books</a>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <a href="/borrowSummary">Borrow Summary</a>
+              <a href="/borrow-summary">Borrow Summary</a>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
