@@ -14,7 +14,7 @@ export default function Footer() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="bg-white/18 backdrop-blur-sm mt-8 rounded-sm py-15">
+        <div className="bg-white/18 backdrop-blur-sm flex flex-col items-center mt-8 rounded-sm py-15">
           <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left">
             <div className="flex flex-col gap-4">
               <div className="flex flex-row items-center gap-1">
@@ -73,10 +73,10 @@ export default function Footer() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="mt-10 text-sm text-pink-700 font-bold text-center">
-          &copy; {new Date().getFullYear()} Minimal Library Management System.
-          All rights reserved.
+          <div className="mt-16  text-sm text-white font-bold text-center">
+            &copy; {new Date().getFullYear()} Minimal Library Management System.
+            All rights reserved.
+          </div>
         </div>
       </div>
     </footer>

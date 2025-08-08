@@ -11,6 +11,12 @@ export const baseApi = createApi({
       query: () => "/books",
       providesTags: ["books"],
     }),
+    getSingleBook: builder.query({
+      query: (book) => ({
+        url: `/books/${book}`,
+        providesTags: ["books"],
+      }),
+    }),
     updateBook: builder.mutation({
       query: ({ id, ...patch }) => ({
         url: `/books/${id}`,
@@ -55,4 +61,5 @@ export const {
   useCreateBookMutation,
   useGetBorrowBooksQuery,
   useBorrowBookMutation,
+  useGetSingleBookQuery,
 } = baseApi;

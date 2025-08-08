@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "../ui/table";
 import type { IBook } from "@/types/book";
-import { FaEdit } from "react-icons/fa";
+import { FaEdit, FaEye } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { FiArrowRightCircle } from "react-icons/fi";
 import { Link, useParams } from "react-router";
@@ -27,7 +27,7 @@ export default function AllBooks() {
     refetchOnReconnect: true,
   });
   const [deleteBook] = useDeleteBookMutation();
-  const { id } = useParams();
+  // const { id } = useParams();
   //console.log(id);
   //console.log(response);
   if (isLoading) {
@@ -63,7 +63,7 @@ export default function AllBooks() {
   };
 
   return (
-    <div className="w-[80%] mx-auto mt-17">
+    <div className="w-[90%] mx-auto mt-17">
       <h1 className="text-3xl  font-bold text-blue-700 text-center mb-12">
         All Books
       </h1>
@@ -90,8 +90,11 @@ export default function AllBooks() {
                 <TableCell>{book.isbn}</TableCell>
                 <TableCell>{book.copies}</TableCell>
                 <TableCell>{book.available ? "true" : "Unavailable"}</TableCell>
-                <TableCell className="text-right flex flex-row gap-0.5 text-xl">
-                  <Link to={`/editBook/${book._id}`}>
+                <TableCell className="text-right flex flex-row gap-1 text-2xl">
+                  <Link to={`/books/${book._id}`}>
+                    <FaEye className="text-emerald-600 mr-1" />
+                  </Link>
+                  <Link to={`/edit-book/${book._id}`}>
                     {" "}
                     <FaEdit className="text-green-500" />
                   </Link>{" "}

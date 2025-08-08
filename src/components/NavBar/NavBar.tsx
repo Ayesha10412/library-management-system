@@ -11,7 +11,7 @@ import { Toggle } from "../ui/toggle";
 
 export function Navbar() {
   return (
-    <nav className="flex items-center justify-between bg-[#1e3b8a91] p-4 border-b ">
+    <nav className="flex items-center justify-between bg-[#4c3c3c] p-4 border-b ">
       <div>
         <img
           src={logo}
@@ -32,10 +32,10 @@ export function Navbar() {
         <a href="/" className="hover:text-blue-600">
           Home
         </a>
-        <a href="/allBooks" className="hover:text-blue-600">
+        <a href="/books" className="hover:text-blue-600">
           All Books
         </a>
-        <a href="/addBook" className="hover:text-blue-600">
+        <a href="/create-book" className="hover:text-blue-600">
           Add Books
         </a>
         <a href="/borrow-summary" className="hover:text-blue-600">
