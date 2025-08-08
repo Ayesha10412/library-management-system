@@ -40,10 +40,10 @@ export default function Footer() {
                   {" "}
                   <li>
                     {" "}
-                    <Link to="allBooks">All Books</Link>
+                    <Link to="books">All Books</Link>
                   </li>
                   <li>
-                    <Link to="addBook">Add Books</Link>
+                    <Link to="create-book">Add Books</Link>
                   </li>
                   <li>
                     <Link to="borrow-summary">Books Summary</Link>

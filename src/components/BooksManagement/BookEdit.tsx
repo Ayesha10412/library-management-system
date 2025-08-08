@@ -19,7 +19,6 @@ export default function BookEdit() {
   const book = useMemo(() => {
     return data?.data?.find((book: IBook) => book._id === id);
   }, [data, id]);
-
   useEffect(() => {
     if (book) {
       form.reset({
@@ -32,14 +31,14 @@ export default function BookEdit() {
     }
   }, [book, form]);
 
-  const onSubmit = async (values: any) => {
+  const onSubmit = async (values) => {
     try {
       await updateBook({ id, ...values }).unwrap();
       toast.success("Book Updated!!");
-      navigate("/allBooks");
-    } catch (error: any) {
-      //console.log(error);
-      toast.error("Update failed!!", error.message);
+      navigate("/books");
+    } catch (error) {
+      const err = error as Error;
+      toast.error(`Update failed!! ${err.message}`);
     }
   };
   return (

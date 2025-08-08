@@ -19,15 +19,14 @@ export default function BookBorrow() {
         dueDate: new Date(formData.dueDate).toISOString(),
       };
       //console.log(borrowData);
-      const res = await borrowBook(borrowData).unwrap();
+      await borrowBook(borrowData).unwrap();
       //console.log(res);
       form.reset();
       toast.success("Book borrowed successfully!");
       navigate("/borrow-summary");
-    } catch (error: any) {
-      const errorMessage =
-        error?.data?.message || error?.message || "Book borrowed failed!!";
-      toast.error(errorMessage);
+    } catch (error) {
+      const err = error as Error;
+      toast.error(`Book Borrowed Failed!! ${err.message}`);
     }
   };
   return (

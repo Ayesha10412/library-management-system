@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
+import type { IBorrowSummary } from "@/types/borrow";
 
 export default function BorrowSummary() {
   const {
@@ -21,6 +22,7 @@ export default function BorrowSummary() {
     refetchOnMountOrArgChange: true,
     refetchOnReconnect: true,
   });
+  console.log({ response });
   if (isLoading) {
     return <p>Loading.......</p>;
   }
@@ -49,7 +51,7 @@ export default function BorrowSummary() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {response?.data?.map((book: any, index: number) => (
+            {response?.data?.map((book: IBorrowSummary, index: number) => (
               <TableRow key={index}>
                 <TableCell className="font-medium">{book.book.title}</TableCell>
                 <TableCell className=" text-gray-500">

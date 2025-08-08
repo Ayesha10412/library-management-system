@@ -13,7 +13,7 @@ import type { IBook } from "@/types/book";
 import { FaEdit, FaEye } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { FiArrowRightCircle } from "react-icons/fi";
-import { Link, useParams } from "react-router";
+import { Link } from "react-router";
 
 export default function AllBooks() {
   const {
@@ -27,9 +27,6 @@ export default function AllBooks() {
     refetchOnReconnect: true,
   });
   const [deleteBook] = useDeleteBookMutation();
-  // const { id } = useParams();
-  //console.log(id);
-  //console.log(response);
   if (isLoading) {
     return <p>Loading......</p>;
   }
@@ -55,9 +52,9 @@ export default function AllBooks() {
           text: "Your file has been deleted.",
           icon: "success",
         });
-      } catch (error: any) {
-        Swal.fire("Error!", "Failed to delete book.", error);
-        //console.log(error);
+      } catch (error) {
+        const err = error as Error;
+        Swal.fire(`Error!", "Failed to delete book. ${err.message}`, "error");
       }
     }
   };
@@ -71,8 +68,8 @@ export default function AllBooks() {
         <Table>
           <TableCaption>A Table of Book List</TableCaption>
           <TableHeader>
-            <TableRow>
-              <TableHead className="w-[100px]">Title</TableHead>
+            <TableRow className="text-black font-bold text-lg">
+              <TableHead className="w-[100px] ">Title</TableHead>
               <TableHead>Author</TableHead>
               <TableHead>Genre</TableHead>
               <TableHead>ISBN</TableHead>
@@ -84,15 +81,23 @@ export default function AllBooks() {
           <TableBody>
             {response?.data?.map((book: IBook) => (
               <TableRow key={book._id}>
-                <TableCell className="font-medium">{book.title}</TableCell>
+                <TableCell className="font-medium text-gray-500">
+                  {book.title}
+                </TableCell>
                 <TableCell>{book.author}</TableCell>
                 <TableCell>{book.genre}</TableCell>
                 <TableCell>{book.isbn}</TableCell>
                 <TableCell>{book.copies}</TableCell>
-                <TableCell>{book.available ? "true" : "Unavailable"}</TableCell>
+                <TableCell
+                  className={
+                    book?.available ? "text-green-600" : "text-red-500"
+                  }
+                >
+                  {book.available ? "true" : "Unavailable"}
+                </TableCell>
                 <TableCell className="text-right flex flex-row gap-1 text-2xl">
                   <Link to={`/books/${book._id}`}>
-                    <FaEye className="text-emerald-600 mr-1" />
+                    <FaEye className="text-indigo-600 mr-1" />
                   </Link>
                   <Link to={`/edit-book/${book._id}`}>
                     {" "}

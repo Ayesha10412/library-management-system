@@ -28,7 +28,7 @@ export default function AddBook() {
   const form = useForm();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  const [createBook, { data, isLoading }] = useCreateBookMutation();
+  const [createBook, { isLoading }] = useCreateBookMutation();
   //console.log({ data });
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
@@ -39,13 +39,12 @@ export default function AddBook() {
       const result = await createBook(bookData).unwrap();
       setOpen(false);
       form.reset();
-      navigate("/allBooks");
+      navigate("/books");
       toast.success("Book added successfully!");
       console.log("inside data:", result);
-    } catch (error: any) {
-      const errorMessage =
-        error?.data?.message || error?.message || "Failed to add the book!";
-      toast.error(errorMessage);
+    } catch (error) {
+      const err = error as Error;
+      toast.error(`Failed to add the book! ${err.message}`);
     }
   };
   return (

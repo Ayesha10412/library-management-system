@@ -1,4 +1,5 @@
 import { useGetSingleBookQuery } from "@/redux/api/baseApi";
+import type { IBook } from "@/types/book";
 import { Link, useParams } from "react-router";
 
 export default function ViewDetails() {
@@ -28,7 +29,7 @@ export default function ViewDetails() {
         Book Profile
       </h1>
       <div className="flex items-center justify-center mb-6">
-        {data?.data?.map((book: any) => (
+        {data?.data?.map((book: IBook) => (
           <div className="card bg-white shadow-md rounded-lg w-full max-w-md md:w-2/3 lg:w-1/2">
             <figure className="px-10 pt-10">
               <img
@@ -38,9 +39,9 @@ export default function ViewDetails() {
               />
             </figure>
             <div className="card-body  p-3">
-              <h2 className="card-title text-lg mb-1 text-indigo-800 font-bold">
+              <h2 className="card-title text-lg mb-1 text-gray-800 font-bold">
                 Title:{" "}
-                <span className="font-semibold text-lg text-indigo-600">
+                <span className="font-semibold text-lg text-gray-600">
                   {book?.title}
                 </span>
               </h2>
@@ -51,13 +52,13 @@ export default function ViewDetails() {
                 </span>
               </p>
               <p className="text-gray-800 mb-1 font-semibold text-sm">
-                Author: <span className="text-indigo-600">{book?.author}</span>
+                Author: <span className="text-gray-600">{book?.author}</span>
               </p>
               <p className="text-gray-800 mb-1 font-semibold text-sm">
-                ISBN: <span className="text-indigo-600">{book?.isbn}</span>
+                ISBN: <span className="text-gray-600">{book?.isbn}</span>
               </p>
               <p className="text-gray-800 mb-1 font-semibold text-sm">
-                Genre: <span className="text-indigo-600">{book?.genre}</span>
+                Genre: <span className="text-gray-600">{book?.genre}</span>
               </p>
               <p className="text-gray-800 mb-1 font-semibold text-sm">
                 Availability:{" "}
