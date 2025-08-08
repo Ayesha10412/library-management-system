@@ -19,18 +19,18 @@ All pages of this project are accessible without login or authentication. The fo
 ### **2. Book Management 🛠️**
 
 - **Book List Table:**
-    - Show all books in a table format.
-    - Columns: Title, Author, Genre, ISBN, Copies, Availability, and Actions.
+  - Show all books in a table format.
+  - Columns: Title, Author, Genre, ISBN, Copies, Availability, and Actions.
 - **Action Buttons/Icons:**
-    - **Edit Book**: Opens a form with existing book data to edit book info. On submit, updates via API and reflects instantly in UI.
-        - Business logic:
-            - If copies set to 0, the book will mark as unavailable.
-    - **Delete Book**: Opens a confirmation dialog before removal.
-    - **Borrow Book**: Opens a simple form to borrow a book.
+  - **Edit Book**: Opens a form with existing book data to edit book info. On submit, updates via API and reflects instantly in UI.
+    - Business logic:
+      - If copies set to 0, the book will mark as unavailable.
+  - **Delete Book**: Opens a confirmation dialog before removal.
+  - **Borrow Book**: Opens a simple form to borrow a book.
 - **Add New Book:**
-    - Button to open a form for creating a new book.
-    - Fields: Title, Author, Genre, ISBN, Description, Copies, Available (optional, defaults to true).
-    - After creation, redirect to book list and update UI immediately.
+  - Button to open a form for creating a new book.
+  - Fields: Title, Author, Genre, ISBN, Description, Copies, Available (optional, defaults to true).
+  - After creation, redirect to book list and update UI immediately.
 
 ---
 
@@ -39,8 +39,8 @@ All pages of this project are accessible without login or authentication. The fo
 - Open from “Borrow” button in the book list.
 - Fields: Quantity (number), Due Date (date).
 - Business logic:
-    - Quantity cannot exceed available copies.
-    - If copies reaches 0, the book is marked unavailable.
+  - Quantity cannot exceed available copies.
+  - If copies reaches 0, the book is marked unavailable.
 - Submit via API and show success message.
 - Redirect to borrow summary page.
 
@@ -57,9 +57,9 @@ All pages of this project are accessible without login or authentication. The fo
 ### **Landing Page Components**
 
 - **Navbar**: Simple navigation bar with links to:
-    - All Books
-    - Add Book
-    - Borrow Summary
+  - All Books
+  - Add Book
+  - Borrow Summary
 - **Book Table/List/Grid**: Display list of books with all core actions.
 - **Footer**: Standard footer with site info or credits.
 
@@ -67,8 +67,8 @@ All pages of this project are accessible without login or authentication. The fo
 
 ## **Page List**
 
-> *(You may choose your preferred UI pattern—pages or modals—for these functionalities.)*
-> 
+> _(You may choose your preferred UI pattern—pages or modals—for these functionalities.)_
+
 - **/books** – Displays a list of all books with options to view, edit, delete, and borrow.
 - **/create-book** – Form interface to add a new book to the system.
 - **/books/:id** – Detailed view of a single book’s information.
@@ -90,12 +90,12 @@ All pages of this project are accessible without login or authentication. The fo
 
 These are optional and will earn extra points:
 
-| **Feature** | **Bonus** |
-| --- | --- |
-| Optimistic UI Updates | +2 |
-| Toast Notifications | +2 |
-| Responsive Layout | +4 |
-| Type-Safe Forms | +2 |
+| **Feature**           | **Bonus** |
+| --------------------- | --------- |
+| Optimistic UI Updates | +2        |
+| Toast Notifications   | +2        |
+| Responsive Layout     | +4        |
+| Type-Safe Forms       | +2        |
 
 ---
 
@@ -107,24 +107,23 @@ You may refer to these minimal systems for visual or architectural ideas:
 - https://preview.themeforest.net/item/printpress-book-publishing-wordpress-theme/full_screen_preview/24014694?_ga=2.20131384.1669901765.1750772448-288147160.1750772448&_gac=1.116000500.1750772448.CjwKCAjwmenCBhA4EiwAtVjzmusDrHd09NjQ8OrLFRbSuhVJmTj9RvLZZfk3JNwDPDqwvcCPoMQ0ohoCVXcQAvD_BwE
 
 > ⚠️ Please do not copy from these sources. Use them only for inspiration and UI layout ideas.
-> 
 
 ---
 
 ## **Backend Requirements (Moduler/MVC Pattern):**
 
 - **Database:** Use MongoDB with a schema including:
-    - **Books** (with attributes like title, author, **genre, isbn, description, copies, available**)
-    - **Borrows** (linked to book, quantity, dueDate etc)
+  - **Books** (with attributes like title, author, **genre, isbn, description, copies, available**)
+  - **Borrows** (linked to book, quantity, dueDate etc)
 - **Book Management:**
-    - Implement CRUD operations for book (create, read, update, delete).
+  - Implement CRUD operations for book (create, read, update, delete).
 - **Borrow Management:**
-    - Execute CRUD operations for borrow (borrow, summery), ensuring copies levels before borrow are placed.
+  - Execute CRUD operations for borrow (borrow, summery), ensuring copies levels before borrow are placed.
 - **Error Handling:**
-    - Establish consistent, user-friendly error messa.
+  - Establish consistent, user-friendly error messa.
 - **Additional Changes:**
-    - Ensure backend APIs support pagination for book listings and order retrieval.
-    - Add authentication middleware to protect private routes (if needed).
+  - Ensure backend APIs support pagination for book listings and order retrieval.
+  - Add authentication middleware to protect private routes (if needed).
 
 `You may use an existing backend that you have developed previously or create a new version by modifying the older one. Make any additional updates if necessary.`
 
@@ -140,24 +139,24 @@ You may refer to these minimal systems for visual or architectural ideas:
 **2. State Management**
 
 - **Redux Toolkit with RTK Query**:
-    - Used for managing all book and borrow-related API calls and states.
+  - Used for managing all book and borrow-related API calls and states.
 - **Slices (Optional)**: Use extra slices for UI states if necessary (e.g., modals).
 
 **3. Technology Stack**
 
-| **Layer** | **Technology** |
-| --- | --- |
-| Frontend | React + TypeScript |
-| State Management | Redux Toolkit + RTK Query |
-| Backend | Node.js + Express.js |
-| Database | MongoDB + Mongoose |
-| Styling | Tailwind CSS or any basic CSS framework |
+| **Layer**        | **Technology**                          |
+| ---------------- | --------------------------------------- |
+| Frontend         | React + TypeScript                      |
+| State Management | Redux Toolkit + RTK Query               |
+| Backend          | Node.js + Express.js                    |
+| Database         | MongoDB + Mongoose                      |
+| Styling          | Tailwind CSS or any basic CSS framework |
 
 ---
 
 ## **Submission:**
 
-1. **GitHub Repository Link (backend and frontend) with Professional README file** 
+1. **GitHub Repository Link (backend and frontend) with Professional README file**
 2. **Live Deployment Link (backend and frontend)**
 
 ---

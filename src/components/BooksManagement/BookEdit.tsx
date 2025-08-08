@@ -37,9 +37,9 @@ export default function BookEdit() {
       await updateBook({ id, ...values }).unwrap();
       toast.success("Book Updated!!");
       navigate("/allBooks");
-    } catch (error) {
+    } catch (error: any) {
       //console.log(error);
-      toast.error("Update failed!!");
+      toast.error("Update failed!!", error.message);
     }
   };
   return (

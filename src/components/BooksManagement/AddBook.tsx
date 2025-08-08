@@ -41,7 +41,7 @@ export default function AddBook() {
       form.reset();
       navigate("/allBooks");
       toast.success("Book added successfully!");
-      //console.log("inside data:", result);
+      console.log("inside data:", result);
     } catch (error: any) {
       const errorMessage =
         error?.data?.message || error?.message || "Failed to add the book!";

@@ -55,16 +55,16 @@ export default function AllBooks() {
           text: "Your file has been deleted.",
           icon: "success",
         });
-      } catch (error) {
-        Swal.fire("Error!", "Failed to delete book.", "error");
+      } catch (error: any) {
+        Swal.fire("Error!", "Failed to delete book.", error);
         //console.log(error);
       }
     }
   };
 
   return (
-    <div className="w-[80%] mx-auto mt-28">
-      <h1 className="text-3xl font-bold text-blue-700 text-center mb-8">
+    <div className="w-[80%] mx-auto mt-17">
+      <h1 className="text-3xl  font-bold text-blue-700 text-center mb-12">
         All Books
       </h1>
       <div>

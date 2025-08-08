@@ -5,11 +5,16 @@ import BookEdit from "@/components/BooksManagement/BookEdit";
 import BookBorrow from "@/components/BooksManagement/BookBorrow";
 import AddBook from "@/components/BooksManagement/AddBook";
 import BorrowSummary from "@/components/Borrow/BorrowSummary";
+import Main from "@/layouts/Main";
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
     children: [
+      {
+        path: "/",
+        element: <Main></Main>,
+      },
       {
         path: "allBooks",
         element: <AllBooks></AllBooks>,

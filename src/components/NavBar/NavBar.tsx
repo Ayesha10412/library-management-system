@@ -20,7 +20,7 @@ export function Navbar() {
         />
       </div>
       <div className="text-2xl font-bold text-[#ffffffe0] text-center ">
-        Library Management System
+        LibraTech
       </div>
 
       {/* Desktop Links */}
@@ -28,6 +28,9 @@ export function Navbar() {
       <div className="hidden md:flex gap-6 text-sm font-medium text-[#ffffffe0]">
         <a href="" className="hover:text-blue-600">
           <Toggle></Toggle>
+        </a>
+        <a href="/" className="hover:text-blue-600">
+          Home
         </a>
         <a href="/allBooks" className="hover:text-blue-600">
           All Books
@@ -52,6 +55,9 @@ export function Navbar() {
           <DropdownMenuContent align="end">
             <DropdownMenuItem>
               <Toggle></Toggle>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <a href="/">Home</a>
             </DropdownMenuItem>
             <DropdownMenuItem>
               <a href="/allBooks">All Books</a>
