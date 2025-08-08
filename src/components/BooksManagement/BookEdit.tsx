@@ -1,5 +1,5 @@
 import { useGetBooksQuery, useUpdateBookMutation } from "@/redux/api/baseApi";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "../ui/form";
@@ -12,11 +12,14 @@ export default function BookEdit() {
   const { id } = useParams();
   const { data } = useGetBooksQuery(undefined);
   const navigate = useNavigate();
-  const book = data?.data?.find((book: IBook) => book._id === id);
   const [updateBook] = useUpdateBookMutation();
   const form = useForm({
     defaultValues: { title: "", author: "", genre: "", isbn: "", copies: 1 },
   });
+  const book = useMemo(() => {
+    return data?.data?.find((book: IBook) => book._id === id);
+  }, [data, id]);
+
   useEffect(() => {
     if (book) {
       form.reset({
@@ -35,7 +38,7 @@ export default function BookEdit() {
       toast.success("Book Updated!!");
       navigate("/allBooks");
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       toast.error("Update failed!!");
     }
   };

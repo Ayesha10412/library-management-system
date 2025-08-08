@@ -14,8 +14,9 @@ export default function BorrowSummary() {
     data: response,
     isLoading,
     isError,
+    isFetching,
   } = useGetBorrowBooksQuery(undefined, {
-    pollingInterval: 3000,
+    // pollingInterval: 3000,
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true,
     refetchOnReconnect: true,
@@ -23,6 +24,7 @@ export default function BorrowSummary() {
   if (isLoading) {
     return <p>Loading.......</p>;
   }
+
   if (isError) {
     return <p>Error! fetching borrow summary.</p>;
   }
@@ -31,6 +33,11 @@ export default function BorrowSummary() {
       <h1 className="text-2xl mt-5 text-center text-blue-600 font-bold">
         Borrow Summary
       </h1>
+      {isFetching && (
+        <p className="text-lg text-gray-600 text-center font-semibold">
+          Refreshing.....
+        </p>
+      )}
       <div className="w-[60%] mx-auto mt-10">
         <Table>
           <TableCaption>A Table of Borrow Summary List</TableCaption>
@@ -42,7 +49,7 @@ export default function BorrowSummary() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {response?.data?.map((book: any, index: any) => (
+            {response?.data?.map((book: any, index: number) => (
               <TableRow key={index}>
                 <TableCell className="font-medium">{book.book.title}</TableCell>
                 <TableCell className=" text-gray-500">

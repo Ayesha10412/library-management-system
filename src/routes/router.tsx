@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
         element: <AddBook></AddBook>,
       },
       {
-        path: "borrowBook",
+        path: "/borrow/:bookId",
         element: <BookBorrow></BookBorrow>,
       },
       {

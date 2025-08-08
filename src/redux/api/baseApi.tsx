@@ -38,6 +38,14 @@ export const baseApi = createApi({
       query: () => "/borrow",
       providesTags: ["borrow"],
     }),
+    borrowBook: builder.mutation({
+      query: (borrow) => ({
+        url: "/borrow",
+        method: "POST",
+        body: borrow,
+      }),
+      invalidatesTags: ["borrow"],
+    }),
   }),
 });
 export const {
@@ -46,4 +54,5 @@ export const {
   useDeleteBookMutation,
   useCreateBookMutation,
   useGetBorrowBooksQuery,
+  useBorrowBookMutation,
 } = baseApi;

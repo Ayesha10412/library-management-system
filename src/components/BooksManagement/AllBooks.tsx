@@ -28,8 +28,8 @@ export default function AllBooks() {
   });
   const [deleteBook] = useDeleteBookMutation();
   const { id } = useParams();
-  console.log(id);
-  console.log(response);
+  //console.log(id);
+  //console.log(response);
   if (isLoading) {
     return <p>Loading......</p>;
   }
@@ -57,7 +57,7 @@ export default function AllBooks() {
         });
       } catch (error) {
         Swal.fire("Error!", "Failed to delete book.", "error");
-        console.log(error);
+        //console.log(error);
       }
     }
   };
@@ -99,7 +99,7 @@ export default function AllBooks() {
                     onClick={() => handleDelete(book._id)}
                     className="text-red-500"
                   />
-                  <Link to="/borrowBook">
+                  <Link to={`/borrow/${book._id}`}>
                     {" "}
                     <FiArrowRightCircle className="text-blue-600" />
                   </Link>
