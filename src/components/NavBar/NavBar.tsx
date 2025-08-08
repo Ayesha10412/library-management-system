@@ -60,10 +60,10 @@ export function Navbar() {
               <a href="/">Home</a>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <a href="/allBooks">All Books</a>
+              <a href="/books">All Books</a>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <a href="/addBooks">Add Books</a>
+              <a href="/create-book">Add Books</a>
             </DropdownMenuItem>
             <DropdownMenuItem>
               <a href="/borrow-summary">Borrow Summary</a>
