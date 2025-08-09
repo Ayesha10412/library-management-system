@@ -135,11 +135,10 @@ npm install
 ### **Environment Variables**
 
 Create a `.env` file in the backend with:
+Create a .env file in the backend with:
 
-```
 PORT=5000
 MONGODB_URI=<your-mongodb-uri>
-```
 
 ### **Run Locally**
 
