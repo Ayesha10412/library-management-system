@@ -132,10 +132,6 @@ git clone <your-repo-link>
 cd frontend
 npm install
 
-cd ../backend
-npm install
-```
-
 ### **Environment Variables**
 
 Create a `.env` file in the backend with:
@@ -146,11 +142,6 @@ MONGODB_URI=<your-mongodb-uri>
 ```
 
 ### **Run Locally**
-
-```bash
-# Start backend
-cd backend
-npm run dev
 
 # Start frontend
 cd frontend
