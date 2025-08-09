@@ -31,7 +31,7 @@ export default function BookEdit() {
     }
   }, [book, form]);
 
-  const onSubmit = async (values) => {
+  const onSubmit = async (values: any) => {
     try {
       await updateBook({ id, ...values }).unwrap();
       toast.success("Book Updated!!");
