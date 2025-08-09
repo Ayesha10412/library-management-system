@@ -102,7 +102,7 @@ Make the application installable and usable offline.
 | State Management | Redux Toolkit + RTK Query |
 | Backend          | Node.js + Express.js      |
 | Database         | MongoDB + Mongoose        |
-| Styling          | Tailwind CSS              |
+| Styling          | Tailwind CSS +  shadcn/ui + daisyUI |
 
 ---
 
